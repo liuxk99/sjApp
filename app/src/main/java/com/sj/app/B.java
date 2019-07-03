@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.sj.utils.SjLog;
 import com.sj.utils.SjLogGen;
+import com.sj.utils.SjMath;
 
-public class SjActivity extends Activity {
-    final String TAG = SjActivity.class.getSimpleName();
+public class B extends Activity {
+    final String TAG = B.class.getSimpleName();
     SjLogGen mLogGen = new SjLogGen(TAG);
 
     @Override
@@ -19,6 +22,8 @@ public class SjActivity extends Activity {
         {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+            TextView textView = findViewById(R.id.textView);
+            textView.setText(TAG);
         }
         sjLog.out();
     }
@@ -32,6 +37,7 @@ public class SjActivity extends Activity {
         sjLog.in();
         {
             unregisterReceiver(mReceiver);
+            MyUtils.sleepRandom(TAG);
             super.onPause();
         }
         sjLog.out();

@@ -26,6 +26,7 @@ public class SjApp extends Application {
         log.in();
         {
             super.onCreate();
+            MyUtils.sleepRandom(TAG);
         }
         log.out();
     }
